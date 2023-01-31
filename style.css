@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: MintCream;
+}
+
+.grocery-container {
+    display: flex;
+    flex-direction: column;
+    background-color: DarkSlateBlue ;
+    padding: 1rem;
+    border-radius: 2px;
+    justify-content: center;
+}
+
+.grocery-container p {
+    color: Snow  ;
+}
+
+.grocery-container h1 {
+    align-self: center;
+    margin-bottom: 0.5rem;
+    color: AliceBlue;
+}
+
+.grocery {
+    display: flex;
+    height: 2rem;
+    justify-content: space-between;
+}
+
+.grocery button {
+    background-color: unset;
+    border: none;
+    cursor: pointer;
+}
+
+.material-symbols-outlined {
+    font-size: 1rem !important;
+}
+
+.edit {
+    color: rgba(0, 229, 255, 0.989);
+}
+
+.remove {
+    color: red;
+}
+
+.add-grocery-container {
+    margin-bottom: 1rem;
+    display: inline-flex;
+}
+
+#grocery-input {
+    border: none;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    padding: 2px;
+}
+
+#grocery-input:focus {
+    outline: none;
+}
+
+#add {
+    border: none;
+    border-left: 1px solid black;
+    margin-left: -1px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    font-size: 8px;
+    padding: 3px;
+    background-color: MintCream;
+    cursor: pointer;
+}
+
+.remove-all {
+    border-radius: 3px;
+    background-color: MintCream;
+    border: none;
+    font-size: 8px;
+    cursor: pointer;
+}
+
+.remove-all:disabled {
+    border: 1px solid gray;
+    cursor: default;
+}
