@@ -1,4 +1,5 @@
 import { localStorageKeys } from "../constants/localStorageKeys.js";
+import { store } from "../storage/store.js";
 import { getDataFromLocalStorage } from "./storageManagement/getDataFromLocalStorage.js";
 
 const groceriesList = document.querySelector('.groceries');
@@ -28,6 +29,7 @@ export const createGroceryItem = (grocery) => {
                 return true;
             }
         });
+        store.editableGroceryIndex = editableGroceryIndex;
     })
     deleteBtn.addEventListener('click', () => {
         console.log(grocery);
