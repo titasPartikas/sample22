@@ -1,7 +1,7 @@
 import { createGroceryItem } from './utils/createGroceryItem.js';
 import { getDataFromLocalStorage } from './utils/storageManagement/getDataFromLocalStorage.js';
 import { setupLocalStorage } from './utils/storageManagement/setupLocalStorage.js';
-import { localStorageKeys } from './constants/localStorageKeys';
+import { localStorageKeys } from './constants/localStorageKeys.js';
 
 setupLocalStorage();
 
