@@ -17,14 +17,36 @@
     <script src="main.js" defer type="module"></script>
 </head>
 <body>
-    <div class="grocery-container">
-        <h1>Grocery list</h1>
-        <div class="add-grocery-container">
-            <input type="text" placeholder="Grocery" id="grocery-input">
-            <button id="add">Add</button>
-        </div>
-        <div class="groceries"></div>
-        <button class="remove-all" disabled="true" >Remove all</button>
+  <div class="grocery-container">
+    <h1>Grocery list</h1>
+    <div class="add-grocery-container">
+      <div class="add-grocery">
+        <input type="text" placeholder="Grocery" id="grocery-input" />
+        <select id="category" class="category-dropdown">
+          <option value="dairy">Dairy</option>
+          <option value="vegetables">Vegetables</option>
+          <option value="fruits">Fruits</option>
+          <option value="meat">Meat</option>
+          <option value="breadAndBakery">Bread & Bakery</option>
+          <option value="Beverages">Beverages</option>
+        </select>
+        <button id="add">Add</button>
+      </div>
+      <div class="filter-grocery">
+        <p>Filter by:</p>
+        <select id="filter-by" class="category-dropdown">
+          <option value="all">All</option>
+          <option value="dairy">Dairy</option>
+          <option value="vegetables">Vegetables</option>
+          <option value="fruits">Fruits</option>
+          <option value="meat">Meat</option>
+          <option value="breadAndBakery">Bread & Bakery</option>
+          <option value="Beverages">Beverages</option>
+        </select>
+      </div>
     </div>
+    <div class="groceries"></div>
+    <button class="remove-all" disabled="true">Remove all</button>
+  </div>
 </body>
 </html>

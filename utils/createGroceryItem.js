@@ -1,8 +1,15 @@
 import { localStorageKeys } from "../constants/localStorageKeys.js";
 import { store } from "../storage/store.js";
+import { getGroceryIndex } from "./getEditableGroceryIndex.js";
+import { onGroceryListChange } from "./onGroceryListChange.js";
+import { rerenderGroceryList } from "./rerenderGroceryList.js";
 import { getDataFromLocalStorage } from "./storageManagement/getDataFromLocalStorage.js";
+import { setDataToLocalStorage } from "./storageManagement/setDataToLocalStorage.js";
 
-const groceriesList = document.querySelector('.groceries');
+const groceriesListContainer = document.querySelector('.groceries');
+const addGroceryBtn = document.querySelector('#add');
+const groceryInput = document.querySelector('#grocery-input');
+const categoryDropdown = document.querySelector('#category');
 
 export const createGroceryItem = (grocery) => {
     const itemContainer = document.createElement('div');
@@ -23,21 +30,24 @@ export const createGroceryItem = (grocery) => {
     deleteIcon.textContent = 'delete';
 
     editBtn.addEventListener('click', () => {
-        const groceries = getDataFromLocalStorage(localStorageKeys.groceries);
-        const editableGroceryIndex = groceries.findIndex((groceryFromLocalStorage) => {
-            if (groceryFromLocalStorage.id === grocery.id) {
-                return true;
-            }
-        });
+        const editableGroceryIndex = getGroceryIndex(grocery.id);
         store.editableGroceryIndex = editableGroceryIndex;
+        addGroceryBtn.textContent = 'Edit';
+        groceryInput.value = grocery.name;
+        categoryDropdown.value = grocery.category;
     })
     deleteBtn.addEventListener('click', () => {
-        console.log(grocery);
+        const deletableGroceryIndex = getGroceryIndex(grocery.id);
+        const groceries = getDataFromLocalStorage(localStorageKeys.groceries);
+        groceries.splice(deletableGroceryIndex, 1);
+        setDataToLocalStorage(localStorageKeys.groceries, groceries);
+        rerenderGroceryList();
+        onGroceryListChange();
     })
 
     editBtn.append(editIcon);
     deleteBtn.append(deleteIcon);
     actionsContainer.append(editBtn, deleteBtn);
     itemContainer.append(nameParagraph, actionsContainer);
-    groceriesList.append(itemContainer);
+    groceriesListContainer.append(itemContainer);
 }

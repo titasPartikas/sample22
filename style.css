@@ -59,14 +59,20 @@ body {
 
 .add-grocery-container {
     margin-bottom: 1rem;
-    display: inline-flex;
+    display: flex;
+    flex-direction: column;
 }
 
-#grocery-input {
+.add-grocery {
+    /* display: inline-flex; */
+}
+
+#grocery-input,
+.category-dropdown {
     border: none;
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
+    border-radius: 3px;
     padding: 2px;
+    background-color: MintCream;
 }
 
 #grocery-input:focus {
@@ -75,10 +81,7 @@ body {
 
 #add {
     border: none;
-    border-left: 1px solid black;
-    margin-left: -1px;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
+    border-radius: 3px;
     font-size: 8px;
     padding: 3px;
     background-color: MintCream;
@@ -96,4 +99,11 @@ body {
 .remove-all:disabled {
     border: 1px solid gray;
     cursor: default;
+}
+
+.filter-grocery {
+    margin-top: 0.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
 }
